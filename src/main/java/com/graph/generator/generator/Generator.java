@@ -100,4 +100,41 @@ public class Generator {
 		}
 		return this.g;
 	}
+	
+	public Graph BipartiteGraph(int v, int p) {
+		if(v < 1) {
+			return null;
+		}
+		double a;
+		this.g = new Graph();
+		this.g.generateVertices(v);
+		List<Vertex> b1 = new ArrayList<>();
+		List<Vertex> b2 = new ArrayList<>();
+		Vertex v1, v2;
+		int cont = 0;
+		while( cont < v) {
+			v1 = randV(g.getAdjacencyList());
+			v2 = randV(g.getAdjacencyList());
+			if(!b1.contains(v1) && !b2.contains(v1)) {
+					b1.add(v1);
+					cont = cont + 1;
+			}
+			if(!b2.contains(v2) && !b1.contains(v2)) {
+				b2.add(v2);
+				cont = cont + 1;
+			}
+			
+		}
+		for(Vertex i : b1) {
+			for (Vertex j : b2){
+				if(!i.isNeighbor(j.getIndex())) {
+					a = rand.nextDouble();
+					if(a <= (p/100.0)) {
+						this.g.addEdget(i, j);
+					}
+				}
+			}
+		}
+		return this.g;
+	}
 }

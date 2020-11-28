@@ -51,4 +51,14 @@ public class GraphGeneratorResource {
 		}
 		return ResponseEntity.ok(g);
 	}
+	
+	@GetMapping(value = "/bipartite/{n}/{p}")
+	@ApiOperation(value = "Returns a random bipartite graph with n vertices, and with p as the percentage of an edge appear between the two vertex of the graph.")
+	public ResponseEntity<Graph> getRandomBipartiteGraph(@PathVariable int n, @PathVariable int p){
+		Graph g = generador.BipartiteGraph(n, p);
+		if(g == null) {
+			return ResponseEntity.notFound().build();
+		}
+		return ResponseEntity.ok(g);
+	}
 }
