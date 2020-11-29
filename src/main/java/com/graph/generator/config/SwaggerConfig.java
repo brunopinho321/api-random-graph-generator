@@ -35,7 +35,7 @@ public class SwaggerConfig {
 				" ",
 				"1.0",
 				"Terms of Services",
-				new Contact("Bruno da Silva Pinho", "brunopinho123@gmail.com", null),
+				new Contact("Bruno da Silva Pinho", "https://github.com/brunopinho321/api-random-graph-generator", "brunopinho123@gmail.com"),
 				"Apache License Version 2.0",
 				null, 
 				new ArrayList<VendorExtension>()
